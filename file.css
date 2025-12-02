@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family:sans-serif;
+}
+/* body{
+    background:rgb(19, 22, 20);
+} */
+.nav>a{
+    color: white;
+
+}
+.nav{
+    position: fixed;
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+@keyframes show-content{
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+   
+}
+.nav>ul{
+    display: flex;
+}
+.nav>ul li{
+list-style: none;
+margin-left: 35px;
+color: aliceblue;
+font-weight: 600;
+}
+.nav>ul >li> a{
+    font-size: 18px;
+     transition: .3s ease-in-out;
+    color: white;
+}
+.nav> ul >li:hover,.nav>ul>li.active>a {
+    color: greenyellow;
+   
+}
+.home{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    gap: 50px;
+    padding: 60px 9% 0;
+    color:white;
+     visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+.homeinfo h1{
+    /* margin: 20px; */
+font-size: 55px;
+margin-bottom: 10px;
+
+}
+
+.homeinfo h2{
+   
+    display: inline-block;
+font-size: 32px;
+margin-top: -10px;
+/* background:violet; */
+}
+.homeinfo h2 >span{
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px greenyellow;
+    animation:display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+    position: relative;
+}
+@keyframes display-text {
+    25%,100%{
+        display: none;
+    }
+}
+.homeinfo h2 >span::before{
+    content: attr(data-text);
+    position: absolute;
+    width:0%;
+    border-right: 2px solid greenyellow;
+    color: greenyellow;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+@keyframes fill-text{
+    10%,100%{
+        width: 0;
+    }
+      70%,90%{
+        width: 100%;
+    }
+}
+
+.homeinfo p{
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+.homeinfo .btn{
+    display: flex;
+    align-items: center;
+}
+.butt{
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid greenyellow;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px greenyellow;
+    background-color: greenyellow;
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+    transition: .4s ease-in-out;
+}
+.butt:hover{
+    background-color: transparent;
+    box-shadow: none;
+    color: greenyellow;
+}
+.homeinfo .btn .logo{
+    margin: 20px;
+}
+.homeinfo .btn .logo a{
+    display: inline-flex;
+    padding: 6px;
+    border: 2px solid greenyellow;
+    border-radius: 50%;
+    font-size: 20px;
+    margin: 0 8px;
+    color: greenyellow;
+    transition: .3s ease-in-out;
+}
+.homeinfo .btn .logo a:hover{
+    background-color: greenyellow;
+    color: black;
+    box-shadow: 0 0 10px greenyellow;
+}
+.home-img .img-box{
+    position: relative;
+    width: 28vw;
+    height: 28vw;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    margin-left: 20px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after{
+    content: "";
+    position:absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent,transparent,transparent,greenyellow);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after{
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(5, 9, 12);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid black;
+}
+.home-img .img-box .img-item>img{
+    position: absolute;
+    mix-blend-mode: lighten;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    top: 30px;
+
+}
+.bars-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+.bars-animation .bar{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */
+    background-color: black;
+    transform: translateY(-100%);
+    animation:show-bars .5s ease-in-out forwards ;
+    animation-delay: calc(.1s *var(--i));
+}
+@keyframes show-bars{
+    100%{
+        transform: translateY(0%);
+    }
+}
